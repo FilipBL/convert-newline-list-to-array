@@ -1,0 +1,75 @@
+{
+  "name": "convert-newline-list-to-array",
+  "displayName": "Convert Newline List to Array",
+  "description": "Convert a newline-separated list into a quoted array (supports multi-selection and configurable brackets).",
+  "version": "0.0.1",
+  "publisher": "fiven",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "convert-newline-list-to-array.convertNewLineToArray",
+        "title": "Convert Newline List to Array"
+      }
+    ],
+    "keybindings": [
+      {
+        "key": "cmd+alt+a",
+        "command": "convert-newline-list-to-array.convertNewLineToArray",
+        "os": "mac"
+      },
+      {
+        "key": "ctrl+alt+a",
+        "command": "convert-newline-list-to-array.convertNewLineToArray",
+        "os": "windows"
+      },
+      {
+        "key": "ctrl+alt+a",
+        "command": "convert-newline-list-to-array.convertNewLineToArray",
+        "os": "linux"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "Convert Newline List To Array",
+      "properties": {
+        "convert-newline-list-to-array.bracketType": {
+          "type": "string",
+          "enum": [
+            "square",
+            "curly",
+            "paren"
+          ],
+          "default": "square",
+          "description": "Which brackets to wrap the resulting array in."
+        },
+        "convert-newline-list-to-array.quoteStyle": {
+          "type": "string",
+          "enum": [
+            "double",
+            "single"
+          ],
+          "default": "double",
+          "description": "Which quotation style to use for each item."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "package": "npx @vscode/vsce package"
+  },
+  "devDependencies": {
+    "@vscode/vsce": "^2.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FilipBL/convert-newline-list-to-array.git"
+  },
+  "license": "MIT"
+}
